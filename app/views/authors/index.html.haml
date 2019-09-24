@@ -1,0 +1,19 @@
+.container.custom-container.container_with_top.faqs_container
+  .row
+    .col-sm-6
+      %h2 Authors
+    .col-sm-6
+      = link_to 'Create Author', new_author_path, class: "float-right btn btn-success new"
+  .report_data_table
+    %table.table.table-striped#author-table.auto_width
+      %thead
+        %tr
+          %th{:width => "20%"} First Name
+          %th{:width => "50%"} Last Name
+          %th{:width => "10%"} Date of Birth
+          %th{:width => "10%"} Action
+        %tbody
+          - if @authors.present?
+            = render partial: 'authors_data',  :collection => @authors, :as => :author
+          - else
+            No records found

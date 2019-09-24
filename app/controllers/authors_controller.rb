@@ -13,8 +13,8 @@ class AuthorsController < ApplicationController
 
   def create
     @author = Author.new(author_params)
-    if @Author.save
-      redirect_to admin_authors_path, notice: 'Author was successfully created.'
+    if @author.save
+      redirect_to authors_path, notice: 'Author was successfully created.'
     else
       render :new
     end
@@ -25,7 +25,7 @@ class AuthorsController < ApplicationController
 
   def update
     if @author.update(author_params)
-      redirect_to admin_faqs_path, notice: 'Author was successfully updated.'
+      redirect_to authors_path, notice: 'Author was successfully updated.'
     else
       render :edit
     end
@@ -33,18 +33,18 @@ class AuthorsController < ApplicationController
 
   def destroy
     @author.destroy
-    redirect_to admin_faqs_path, notice: 'Author was successfully destroyed.'
+    redirect_to authors_path, notice: 'Author was successfully destroyed.'
   end
 
 
   private
 
-  def set_faq
+  def set_author
     @author = Author.find(params[:id])
     return false if @author.blank?
   end
 
-  def faq_params
+  def author_params
     params.require(:author).permit(:first_name, :last_name, :date_of_birth)
   end
 end

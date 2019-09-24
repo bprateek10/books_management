@@ -1,0 +1,7 @@
+%tr
+  %td{:width => "20%", :style => "vertical-align:middle"}=author.first_name
+  %td{:width => "50%", :style => "vertical-align:middle"}=author.last_name
+  %td{:width => "10%", :style => "vertical-align:middle"}=author.date_of_birth
+  %td{:width => "10%", :style => "vertical-align:middle"}
+    = link_to 'Edit Author', edit_author_path(author)
+    = link_to 'Delete Author', author_path(author), method: :delete, data: { confirm: "Are you sure?" }

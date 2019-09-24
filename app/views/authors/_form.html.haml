@@ -1,0 +1,29 @@
+= form_for @author, url: form_action, html: {class: "form-horizontal center faq-validation"} do |f|
+  .container.user_details
+    %h3= params[:action] == "edit" ? "Edit Author" : "Create Author"
+    .card
+      .card-body
+        .row
+          .col-md-12
+            .form-group
+              %label.pull-left
+                First Name
+              = f.text_field :first_name, class: "form-control"
+              .field-error.server-validation
+                = show_error(f.object, :first_name)
+            .form-group
+              %label.pull-left
+                Last Name
+              = f.text_field :last_name, class: "form-control"
+              .field-error.server-validation
+                = show_error(f.object, :last_name)  
+            .form-group
+              %label.pull-left
+                Enter Date of Birth
+              = f.date_field :date_of_birth, class: "form-control"
+              .field-error
+                = show_error(f.object, :date_field)
+            %center
+              .form-group
+                .actions
+                  = f.submit 'Save', class: 'btn btn-primary'
