@@ -49,10 +49,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem "rename"
   gem "letter_opener"
-  gem 'rubocop'
-  gem 'rubocop-performance'
 end
 
 group :test do
@@ -67,14 +64,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'hashie-forbidden_attributes'
 gem 'haml-rails'
-gem 'devise'
 gem 'grape'
 gem 'grape-swagger'
 gem 'grape-swagger-rails'
 gem 'grape-jbuilder'
-gem 'jwt'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.0'
-gem 'active_model_serializers'
-gem 'grape-active_model_serializers'
-gem "font-awesome-rails"
