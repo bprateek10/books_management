@@ -4,7 +4,6 @@ module API
   module V1
     class Base < API::Base
       formatter :json, Grape::Formatter::Jbuilder
-      helpers API::V1::Helpers::AuthenticationHelpers
 
       rescue_from ActiveRecord::RecordNotFound do |e|
         error!('Record not found.', 404)
@@ -22,16 +21,9 @@ module API
         error!('Unauthorized request.', 401) unless authorized
       end
 
-      helpers do
-        def authorized
-          authorization_key = Base64.strict_decode64(request.headers['Authorization']) rescue false
-          authorization_key == "#{$secret[:api_client_id]}:#{$secret[:api_client_secret]}"
-        end
-      end
-
       version 'v1'
 
-      mount API::V1::Users
+      mount API::V1::Authors
     end
   end
 end

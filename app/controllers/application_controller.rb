@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource_or_scope)
-    resource_or_scope.to_s == 'user' ? new_user_session_path : new_admin_session_path
+  	root_path
+    # resource_or_scope.to_s == 'user' ? new_user_session_path : new_admin_session_path
   end
 end

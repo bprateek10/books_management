@@ -1,6 +1,6 @@
 ![Logo of RoRPlus](https://drive.google.com/uc?id=1HAGX3lPk2W46XrMcg0vpdUB5ejmpa-bC)
 
-RorPlus
+BooksManagement
 =====================
 
 A Ruby on Rails boilerplate which contains web and api creation environment for quick rails app creation.
@@ -15,7 +15,7 @@ Step 1 - Install prerequisites
 
 Step 2 - Clone the Repository
 --------------------
-    git clone https://github.com/SystangoTechnologies/RorPlus.git ror_plus
+    git clone https://github.com/SystangoTechnologies/BooksManagement.git ror_plus
 
 Step 3 - Setup credentials master key
 --------------------
@@ -32,7 +32,7 @@ Step 3 - Setup credentials master key
     development:
       base_url: 'http://localhost:3000'
       api_client_id: 'ror_plus'
-      api_client_secret: 'HDFkfRorPlus645'
+      api_client_secret: 'HDFkfBooksManagement645'
       api_hmac_secret: 'HfgisL637'
 
   Save the changes.

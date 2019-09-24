@@ -6,24 +6,6 @@ module API
 
     included do
       helpers do
-        def authenticate!
-          begin
-            JWT.decode(params[:user][:access_token], $secret[:api_hmac_secret], true, { :algorithm => 'HS256' })
-            @access_token = AccessToken.where(token: params[:user][:access_token]).first
-            if @access_token.present?
-              @current_user = @access_token.user
-            else
-              respond_error(401, 'Invalid session.')
-            end
-          rescue JWT::ExpiredSignature
-            access_token = AccessToken.where(token: params[:user][:access_token]).first
-            access_token.destroy if access_token.present?
-            respond_error(401, 'Session expired.')
-          rescue
-            respond_error(401, 'Invalid session.')
-          end
-        end
-
         def error_message(object)
           object.errors.full_messages.uniq.join(",")
         end

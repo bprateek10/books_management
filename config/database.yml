@@ -9,15 +9,15 @@ default: &default
 
 development:
   <<: *default
-  database: ror_plus_development
+  database: books_management_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: ror_plus_test
+  database: books_management_test
 
 production:
   <<: *default
-  database: ror_plus_production
+  database: books_management_production
