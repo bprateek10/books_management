@@ -6,13 +6,12 @@ module API
       include API::Defaults
 
       resource :authors do
-        desc 'Get an Author details', {
-        }
-        get ":id" do
-          respond(200, {})
+        desc 'Get an Author details', {}
+        get ":id", jbuilder: 'authors/index.json.jbuilder' do
+          @author = Author.find_by_id(params[:id])
+          respond_error("Author not found", 404) if @author.nil?
         end
       end
-      
     end
   end
 end

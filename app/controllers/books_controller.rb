@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-class AuthorsController < ApplicationController
+class BooksController < ApplicationController
   before_action :set_book, except: [:index, :new, :create]
 
   def index
-    @authors = Book.all
+    @books = Book.all
   end
 
   def new
@@ -12,8 +12,12 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    @book = Book.new(author_params)
+    @book = Book.new(book_params)
     if @book.save
+      authors = Author.where(id: params[:book][:author_ids])
+      authors.each do |author|
+        @book.authors << author
+      end
       redirect_to books_path, notice: 'Book was successfully created.'
     else
       render :new
@@ -39,12 +43,12 @@ class AuthorsController < ApplicationController
 
   private
 
-  def set_author
+  def set_book
     @book = Book.find(params[:id])
     return false if @book.blank?
   end
 
-  def author_params
-    params.require(:book).permit(:title, :author_ids)
+  def book_params
+    params.require(:book).permit(:title)
   end
 end

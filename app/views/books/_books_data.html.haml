@@ -1,0 +1,5 @@
+%tr
+  %td{:width => "20%", :style => "vertical-align:middle"}=book.title
+  %td{:width => "10%", :style => "vertical-align:middle"}
+    = link_to 'Edit Book', edit_book_path(book)
+    = link_to 'Delete Book', book_path(book), method: :delete, data: { confirm: "Are you sure?" }

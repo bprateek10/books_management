@@ -1,0 +1,23 @@
+= form_for @book, url: form_action, html: {class: "form-horizontal center"} do |f|
+  .container.user_details
+    %h3= params[:action] == "edit" ? "Edit Book" : "Create Book"
+    .card
+      .card-body
+        .row
+          .col-md-12
+            .form-group
+              %label.pull-left
+                Title
+              = f.text_field :title, class: "form-control"
+              .field-error.server-validation
+                = show_error(f.object, :title)
+            .form-group
+              %label.pull-left
+                Select Authors
+                = f.select(:author_ids, author_list, {}, {:class => "form-control custom-select", :multiple =>'multiple'})
+                .field-error
+                  = show_error(f.object, :author_ids)
+            %center
+              .form-group
+                .actions
+                  = f.submit 'Save', class: 'btn btn-primary'

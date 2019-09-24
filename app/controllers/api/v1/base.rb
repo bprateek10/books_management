@@ -17,10 +17,6 @@ module API
         error!(e.message.remove("'"), 422)
       end
 
-      before do
-        error!('Unauthorized request.', 401) unless authorized
-      end
-
       version 'v1'
 
       mount API::V1::Authors

@@ -1,0 +1,17 @@
+.container.custom-container.container_with_top.faqs_container
+  .row
+    .col-sm-6
+      %h2 Books
+    .col-sm-6
+      = link_to 'Create Book', new_book_path, class: "float-right btn btn-success new"
+  .report_data_table
+    %table.table.table-striped#author-table.auto_width
+      %thead
+        %tr
+          %th{:width => "20%"} Title
+          %th{:width => "10%"} Action
+        %tbody
+          - if @books.present?
+            = render partial: 'books_data',  :collection => @books, :as => :book
+          - else
+            No records found
